@@ -649,3 +649,60 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Line 懸浮按鈕 */
+.line-floating-button {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+    border: none !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    z-index: 1000 !important;
+    box-shadow: 0 6px 20px rgba(0, 195, 0, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    animation: pulse 2s infinite;
+    overflow: hidden !important;
+}
+
+.line-floating-button img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+}
+
+.line-floating-button:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 25px rgba(0, 195, 0, 0.6) !important;
+    text-decoration: none !important;
+    color: white !important;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 6px 20px rgba(0, 195, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(0, 195, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 6px 20px rgba(0, 195, 0, 0.4);
+    }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .line-floating-button {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 55px !important;
+        height: 55px !important;
+    }
+}
