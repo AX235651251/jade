@@ -1,0 +1,651 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 1. Hero Banner - 左文右圖 */
+.hero-banner {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 2rem 0;
+}
+
+.hero-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    min-height: 60vh;
+}
+
+
+
+.cta-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(45, 80, 22, 0.85);
+    z-index: 1;
+}
+
+.hero-content {
+    text-align: left;
+    color: #333;
+    padding: 1rem 0;
+}
+
+.hero-image {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 100%;
+    min-height: 60vh;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 60vh;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: #2c3e50;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-title .highlight {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.hero-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    border-radius: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: #34495e;
+    animation: fadeInUp 1s ease-out 0.3s both;
+    font-weight: 500;
+}
+
+.hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e0e6ed;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.feature:hover {
+    background: #f8f9fa;
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: #27ae60;
+}
+
+.feature .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.feature .icon svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+.feature span:not(.icon) {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.hero-cta {
+    text-align: left;
+    animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #3498db, #5dade2);
+    border-radius: 12px;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(39, 174, 96, 0.5);
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+/* Hero動畫效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-btn.large {
+    padding: 1.5rem 3rem;
+    font-size: 1.4rem;
+}
+
+/* Section CTA */
+.section-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(39, 174, 96, 0.5);
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+/* 2. 卡片並列樣式 */
+.work-section, .target-section {
+    padding: 100px 0;
+    background: #f8fdf8;
+}
+
+.target-section {
+    background: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    color: #2d5016;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.section-header p {
+    font-size: 1.3rem;
+    color: #666;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.work-card, .target-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e8f5e8;
+}
+
+.work-card:hover, .target-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.work-card:hover .card-image img,
+.target-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    color: #2d5016;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.card-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* SVG Icon Styles */
+h2 svg, h3 svg {
+    color: #f39c12;
+}
+
+.section-header h2 svg {
+    color: #2d5016;
+}
+
+.about-section h2 svg,
+.salary-section h2 svg {
+    color: #f39c12;
+}
+
+.cta-text svg {
+    color: white;
+}
+
+.cta-btn svg {
+    color: white;
+}
+
+.footer-brand h3 svg {
+    color: #f39c12;
+}
+
+/* 3. 左圖右文/右圖左文樣式 */
+.features-section, .about-section, .salary-section {
+    padding: 100px 0;
+}
+
+.features-section {
+    background: white;
+}
+
+.features-section.alt {
+    background: #f8fdf8;
+}
+
+.about-section {
+    background: #2d5016;
+    color: white;
+}
+
+.salary-section {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+}
+
+.feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.features-section.alt .feature-row {
+    grid-template-columns: 1fr 1fr;
+}
+
+.salary-section .feature-row {
+    grid-template-columns: 1fr 1fr;
+}
+
+.feature-image {
+    width: 100%;
+}
+
+.feature-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.feature-image img:hover {
+    transform: scale(1.02);
+}
+
+.feature-content {
+    padding: 2rem 0;
+}
+
+.feature-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.about-section .feature-content h2 {
+    color: white;
+}
+
+.salary-section .feature-content h2 {
+    color: white;
+}
+
+.feature-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.salary-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.salary-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.salary-item p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.benefits p {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.benefits p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+}
+
+
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #f39c12;
+}
+
+.footer-brand p {
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.footer-info p {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+    
+    .hero-row {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .hero-content {
+        text-align: center;
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+    
+    .hero-image img {
+        max-width: 400px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-features {
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .feature:hover {
+        transform: translateY(-3px);
+    }
+    
+    .hero-cta {
+        text-align: center;
+    }
+    
+    .cta-text {
+        font-size: 1.1rem;
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .feature-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .features-section.alt .feature-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .salary-section .feature-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .feature {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .cta-btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .cta-btn.large {
+        padding: 1.2rem 2.5rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
