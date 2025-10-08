@@ -95,11 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rowObserver.observe(row);
     });
     
-    // Line 懸浮按鈕
-    const lineFloatingButton = createLineFloatingButton();
-    if (lineFloatingButton) {
-        document.body.appendChild(lineFloatingButton);
-    }
+    // 已移除自訂 Line 懸浮按鈕，保留第三方聊天工具（如 Tawk.to）的按鈕
     
     // 錯誤處理
     window.addEventListener('error', function(e) {
@@ -109,62 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🍃 翡翠產業招募網站（重新設計版）已載入完成');
 });
 
-// 創建 Line 懸浮按鈕
-function createLineFloatingButton() {
-    const button = document.createElement('a');
-    button.href = 'https://lin.ee/xpg6INJ';
-    button.target = '_blank';
-    button.className = 'line-floating-button';
-    
-    // 使用 Line 圖片
-    button.innerHTML = `
-        <img src="images/IMG_8168.JPG" alt="加入Line官方帳號" />
-    `;
-    
-    button.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 60px;
-        height: 60px;
-        background: #00C300;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 1;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        box-shadow: 0 6px 20px rgba(0, 195, 0, 0.4);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 10px;
-        font-weight: bold;
-        gap: 2px;
-    `;
-    
-    // 懸停效果
-    button.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.1)';
-        this.style.boxShadow = '0 8px 25px rgba(0, 195, 0, 0.6)';
-    });
-    
-    button.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-        this.style.boxShadow = '0 6px 20px rgba(0, 195, 0, 0.4)';
-    });
-    
-    // 點擊事件
-    button.addEventListener('click', function(e) {
-        console.log('Line 懸浮按鈕點擊');
-        // 這裡您可以稍後更改為開啟 Line 聊天
-    });
-    
-    return button;
-}
+// 已移除 createLineFloatingButton()，避免建立第二個懸浮按鈕，保留 Tawk.to 預設按鈕
 
 // 防抖函數
 function debounce(func, wait, immediate) {
